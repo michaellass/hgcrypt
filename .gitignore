@@ -1,0 +1,7 @@
+*~
+*.pyc
+__pycache__/
+/extension/hgcrypt/Convergent/rabin/*.c
+/extension/hgcrypt/Convergent/rabin/*.so
+/extension/hgcrypt/Convergent/rabin/build
+/extension/hgcrypt/Convergent/rabin/testfile
