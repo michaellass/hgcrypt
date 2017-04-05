@@ -88,10 +88,13 @@ def check_uid_trust(fingerprint, mail):
     g = GPG()
     args = "--list-options show-uid-validity --list-sigs " + fingerprint
     args = [args]
-    lang = environ["LANG"]
+    lang = environ.get("LANG", None)
     environ["LANG"] = "C"
     p = g._open_subprocess(args)
-    environ["LANG"] = lang
+    if lang is None:
+        del environ["LANG"]
+    else:
+        environ["LANG"] = lang
     result = p.stdout.readlines()
 
     # look for entries with the correct mail address and collect
